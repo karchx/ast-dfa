@@ -25,7 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      VM
   other-modules:
       Paths_lexer_dfa
   autogen-modules:

@@ -1,6 +1,14 @@
 module Main (main) where
 
-import Lib
+import VM
 
 main :: IO ()
-main = someFunc
+main = do
+    let vm = initialState
+    let newState = step vm (PUSH 42)
+    let newStateNext = step newState (0)
+    print vm
+    print newState
+    print newStateNext
+
+
