@@ -1,6 +1,10 @@
 module Lib
-    ( someFunc
+    (Expr(..)
+    , Stmt(..)
+    , BinOp(..)
+    , Program
+    , runProgram
     ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+import Syntax (Expr(..), BinOp(..), Stmt(..), Program)
+import Eval (runProgram)

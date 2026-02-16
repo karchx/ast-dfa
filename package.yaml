@@ -1,26 +1,22 @@
-name:                lexer-dfa
+name:                ast-dfa
 version:             0.1.0.0
-github:              "githubuser/lexer-dfa"
+github:              "karchx/ast-dfa"
 license:             BSD-3-Clause
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2026 Author name here"
+author:              "karchx"
+maintainer:          ""
+copyright:           "2026 karchx"
 
 extra-source-files:
 - README.md
 - CHANGELOG.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/lexer-dfa#readme>
+description:         Please see the README on GitHub at <https://github.com/karchx/ast-dfa#readme>
 
 dependencies:
 - base >= 4.7 && < 5
+- text
+- containers
+- mtl
 
 ghc-options:
 - -Wall
@@ -45,7 +41,7 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - lexer-dfa
+    - ast-dfa
 
 tests:
   lexer-dfa-test:
@@ -56,4 +52,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - lexer-dfa
+    - ast-dfa
