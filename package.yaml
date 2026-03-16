@@ -1,5 +1,5 @@
 name:                ast-dfa
-version:             0.1.0.0
+version:             1.0.0
 github:              "karchx/ast-dfa"
 license:             BSD-3-Clause
 author:              "karchx"
@@ -17,6 +17,7 @@ dependencies:
 - text
 - containers
 - mtl
+- QuickCheck
 
 ghc-options:
 - -Wall

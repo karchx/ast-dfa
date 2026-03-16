@@ -1,33 +1,30 @@
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Syntax
     ( Name
     , Expr(..)
-    , BinOp(..)
-    , Stmt(..)
-    , Program
+    , Val(..)
+    , Env
     ) where
 
 import Data.Text (Text)
-import Data.Int (Int64)
+import Data.Map.Strict (Map)
 
 type Name = Text
 
 data Expr
-    = ELit Int64
+    = ELit Int
     | EVar Name
-    | EBinOp BinOp Expr Expr
+    | ELam Name Expr -- lambda function
+    | EApp Expr Expr
+    | EAdd Expr Expr
     deriving (Show, Eq)
 
-data BinOp = Add | Sub | Mul | Div | Eq | Lt deriving (Show, Eq)
-
-data Stmt
-    = SAssign Name Expr
-    | SBlock [Stmt]
-    | SIf Expr Stmt Stmt
-    | SWhile Expr Stmt
-    | SPrint Expr
+data Val
+    = VInt Int
+    | VClosure Name Expr Env -- close lexical environment for lambda
     deriving (Show, Eq)
 
-type Program = [Stmt]
+type Env = Map Name Val
 
