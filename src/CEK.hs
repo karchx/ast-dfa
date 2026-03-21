@@ -44,7 +44,7 @@ step (Apply [] v) = Done v
 step (Apply (KArg e2 env : k) v1) = Eval e2 env (KApp v1 : k)
 step (Apply (KApp (VClosure x body cEnv) : k) v2) =
     Eval body (Map.insert x v2 cEnv) k
-step (Apply (KApp _ : _) _) = Error "Intento de aplicar un valor que no es función"
+step (Apply (KApp _ : _) _) = Error "Type error: attempt to apply non-function value"
 
 step (Apply (KAddL e2 env : k) v1) = Eval e2 env (KAddR v1 : k)
 
