@@ -18,6 +18,8 @@ dependencies:
 - containers
 - mtl
 - QuickCheck
+- megaparsec
+- parser-combinators
 
 ghc-options:
 - -Wall
