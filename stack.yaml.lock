@@ -3,11 +3,38 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/topics/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: ghc-lib-parser-9.10.3.20250912@sha256:2c2863e98f3d95f1e09dc4eb00bf1788ca48706c336ef70b80875a216704dc47,17593
+    pantry-tree:
+      sha256: 74569706c67918a66075e40b06944f06e71383023e83781524cd0d3dbdac4c75
+      size: 37485
+  original:
+    hackage: ghc-lib-parser-9.10.3.20250912@sha256:2c2863e98f3d95f1e09dc4eb00bf1788ca48706c336ef70b80875a216704dc47,17593
+- completed:
+    hackage: hashable-1.4.7.0@sha256:573f3ab242f75465a0d67ce9d84202650a1606575e6dbd6d31ffcf4767a9a379,6629
+    pantry-tree:
+      sha256: 9ec168505c52fa389b7447a1251b302e32537adeecac88c2aa72beed53beb3bd
+      size: 1578
+  original:
+    hackage: hashable-1.4.7.0@sha256:573f3ab242f75465a0d67ce9d84202650a1606575e6dbd6d31ffcf4767a9a379,6629
+- completed:
+    hackage: proto3-wire-1.4.6@sha256:42b58d7f699ba788693449bb73163191c42e7afd50e6f7bab7821af1e81fff32,2689
+    pantry-tree:
+      sha256: ab4f5f29c9dd67397941c50c518ec32b01a9b45ddf3c4cd8ee73c9c203ad82e8
+      size: 1206
+  original:
+    hackage: proto3-wire-1.4.6@sha256:42b58d7f699ba788693449bb73163191c42e7afd50e6f7bab7821af1e81fff32,2689
+- completed:
+    hackage: proto3-suite-0.9.4@sha256:b98a7c2c92d669160bc74ffa0d885d22c426e708bd812f4d667cd6ff5ad99836,7625
+    pantry-tree:
+      sha256: 8f428547bc3e5dfcfe53b21e50d301a64eadd4b878da6d9a5ad17dccdc2da9b0
+      size: 4338
+  original:
+    hackage: proto3-suite-0.9.4@sha256:b98a7c2c92d669160bc74ffa0d885d22c426e708bd812f4d667cd6ff5ad99836,7625
 snapshots:
 - completed:
-    sha256: c320c36b8a392602c9076bdd0c656e12dcab30f294105a50c3f8ef963c4c3a0d
-    size: 726760
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/24/27.yaml
-  original:
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/24/27.yaml
+    sha256: 6406d8039dd538f18fc0d242f01c7066ee386d81ba3c8751b914ac1ae193ec5d
+    size: 728959
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/24/35.yaml
+  original: lts-24.35

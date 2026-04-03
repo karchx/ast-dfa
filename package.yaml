@@ -20,6 +20,12 @@ dependencies:
 - QuickCheck
 - megaparsec
 - parser-combinators
+- proto3-suite
+- bytes
+- proto3-wire >= 1.4.6
+- deepseq >= 1.5.0.0
+- vector >= 0.13.2.0
+- bytestring >= 0.12.2.0
 
 ghc-options:
 - -Wall

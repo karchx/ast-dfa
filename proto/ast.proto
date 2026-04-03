@@ -1,0 +1,37 @@
+syntax = "proto3";
+package ast;
+
+enum BinOp {
+  BIN_OP_UNSPECIFIED = 0;
+  BIN_OP_ADD = 1;
+  BIN_OP_SUB = 2;
+  BIN_OP_MUL = 3;
+  BIN_OP_DIV = 4;
+  BIN_OP_POW = 5;
+}
+
+message Lambda {
+  string param = 1;
+  Expr body = 2;
+}
+
+message App {
+  Expr func = 1;
+  Expr arg = 2;
+}
+
+message BinOpExpr {
+  BinOp op = 1;
+  Expr lhs = 2;
+  Expr rhs = 3;
+}
+
+message Expr {
+  oneof expr_kind {
+    double lit = 1;
+    string var = 2;
+    Lambda lam = 3;
+    App app = 4;
+    BinOpExpr binop = 5;
+  }
+}

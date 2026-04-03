@@ -28,6 +28,8 @@ library
       Core.CEK
       Parser.Lexer
       Parser.Parser
+      Proto.Ast
+      Storage.Protobuf
   other-modules:
       Paths_ast_dfa
   autogen-modules:
@@ -38,11 +40,17 @@ library
   build-depends:
       QuickCheck
     , base >=4.7 && <5
+    , bytes
+    , bytestring >=0.12.2.0
     , containers
+    , deepseq >=1.5.0.0
     , megaparsec
     , mtl
     , parser-combinators
+    , proto3-suite
+    , proto3-wire >=1.4.6
     , text
+    , vector >=0.13.2.0
   default-language: Haskell2010
 
 executable lexer-dfa-exe
@@ -58,11 +66,17 @@ executable lexer-dfa-exe
       QuickCheck
     , ast-dfa
     , base >=4.7 && <5
+    , bytes
+    , bytestring >=0.12.2.0
     , containers
+    , deepseq >=1.5.0.0
     , megaparsec
     , mtl
     , parser-combinators
+    , proto3-suite
+    , proto3-wire >=1.4.6
     , text
+    , vector >=0.13.2.0
   default-language: Haskell2010
 
 test-suite lexer-dfa-test
@@ -79,9 +93,15 @@ test-suite lexer-dfa-test
       QuickCheck
     , ast-dfa
     , base >=4.7 && <5
+    , bytes
+    , bytestring >=0.12.2.0
     , containers
+    , deepseq >=1.5.0.0
     , megaparsec
     , mtl
     , parser-combinators
+    , proto3-suite
+    , proto3-wire >=1.4.6
     , text
+    , vector >=0.13.2.0
   default-language: Haskell2010

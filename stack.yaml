@@ -1,5 +1,11 @@
-snapshot:
-  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/24/27.yaml
+resolver: lts-24.35
 
 packages:
 - .
+
+extra-deps:
+- ghc-lib-parser-9.10.3.20250912@sha256:2c2863e98f3d95f1e09dc4eb00bf1788ca48706c336ef70b80875a216704dc47,17593
+- hashable-1.4.7.0@sha256:573f3ab242f75465a0d67ce9d84202650a1606575e6dbd6d31ffcf4767a9a379,6629
+- proto3-wire-1.4.6@sha256:42b58d7f699ba788693449bb73163191c42e7afd50e6f7bab7821af1e81fff32,2689
+- proto3-suite-0.9.4@sha256:b98a7c2c92d669160bc74ffa0d885d22c426e708bd812f4d667cd6ff5ad99836,7625
+
