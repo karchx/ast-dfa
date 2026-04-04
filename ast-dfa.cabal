@@ -26,6 +26,8 @@ library
   exposed-modules:
       AST.Syntax
       Core.CEK
+      Core.Compiler
+      Core.Expr
       Parser.Lexer
       Parser.Parser
       Proto.Ast

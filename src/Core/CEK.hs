@@ -5,8 +5,15 @@ module Core.CEK
     , step
     ) where
 
-import AST.Syntax
-import qualified Data.Map.Strict as Map
+import AST.Syntax (BinOp(..))
+import Core.Expr (Expr(..))
+
+type Env = [Val]
+
+data Val
+    = VDouble Double
+    | VClosure Expr Env
+    deriving (Show, Eq)
 
 data Frame
     = KArg Expr Env
@@ -28,23 +35,24 @@ data State
 step :: State -> State
 
 -- Lits and vars
-step (Eval (ELit n) _ k) = Apply k (VDouble n)
-step (Eval (EVar x) env k) =
-    case Map.lookup x env of
-        Just v  -> Apply k v
-        Nothing -> Error $ "Variable not defined: " ++ show x
+step (Eval (Lit n) _ k) = Apply k (VDouble n)
+step (Eval (Var x) env k) =
+    case drop x env of
+        (v:_)  -> Apply k v
+        [] -> Error $ "Runtime fault: index out bounds: " ++ show x
 
 -- lambda evaluation
-step (Eval (ELam x body) env k) = Apply k (VClosure x body env)
-step (Eval (EApp e1 e2) env k) = Eval e1 env (KArg e2 env : k)
+step (Eval (Lam body) env k) = Apply k (VClosure body env)
+step (Eval (App e1 e2) env k) = Eval e1 env (KArg e2 env : k)
 
-step (Eval (EBinOp op e1 e2) env k) = Eval e1 env (KBinOpL op e2 env : k)
+step (Eval (BinOp op e1 e2) env k) = Eval e1 env (KBinOpL op e2 env : k)
 
 step (Apply [] v) = Done v
 
 step (Apply (KArg e2 env : k) v1) = Eval e2 env (KApp v1 : k)
-step (Apply (KApp (VClosure x body cEnv) : k) v2) =
-    Eval body (Map.insert x v2 cEnv) k
+
+step (Apply (KApp (VClosure body cEnv) : k) v2) =
+    Eval body (v2 : cEnv) k
 step (Apply (KApp _ : _) _) = Error "Type error: attempt to apply non-function value"
 
 step (Apply (KBinOpR op (VDouble n1) : k) (VDouble n2)) =
@@ -67,7 +75,7 @@ evalOp Div x y = Right (x / y)
 evalOp Pow x y = Right (x ** y)
 
 runCEK :: Expr -> Either String Val
-runCEK expr = loop (Eval expr Map.empty [])
+runCEK expr = loop (Eval expr [] [])
     where
         loop state = case state of
             Done v -> Right v
