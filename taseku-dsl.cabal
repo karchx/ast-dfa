@@ -28,7 +28,7 @@ library
       Frontend.AST
       Frontend.Lexer
       Frontend.Parser
-      Frontend.TypeChecker
+      Frontend.Semantic
   other-modules:
       Paths_taseku_dsl
   autogen-modules:

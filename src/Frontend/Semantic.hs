@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Frontend.TypeChecker ( checkNilpotency ) where
+module Frontend.Semantic ( checkNilpotency ) where
 
 import Data.Text (Text)
 import Frontend.AST
@@ -15,10 +15,11 @@ isSquare :: [[Int]] -> Bool
 isSquare m = all (\r -> length r == length m) m
 
 checkNilpotency :: Expr -> Either Text Expr
-checkNilpotency expr@(Matrix m)
+checkNilpotency expr@(MatLiteral m)
     | null m || not (isSquare m) = Left "Semantic Error: The matrix is not square or is empty"
     | any isZeroMatrix powers = Right expr
     | otherwise = Left "Semantic Error: The matrix is not nilpotent."
     where
         n = length m
         powers = take n $ iterate (`mult` m) m
+
